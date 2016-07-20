@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+    <head>
+        <title>
+            LOGIN/REGISTRATION FORM
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <link href="assets/style.css" rel='stylesheet' type='text/css' />
+        <!--webfonts-->
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+        
+    </head>
+    <body>
+        <script type="text/javascript" language="JavaScript">
+        // Validate the user input before we submit the form
+        function validateVolunteerForm()
+        {
+            //Email Address Validation
+            if(document.volunteerLoginForm.emailAddress.value == '')
+            {
+                alert('Email Address field cannot be blank.');
+                document.volunteerLoginForm.emailAddress.focus();
+                return false;
+            }
+
+            if(!/^\w+([\.-_]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.volunteerLoginForm.emailAddress.value))
+            {
+                alert('This is not a valid email address, pls enter a valid one!');
+                document.volunteerLoginForm.emailAddress.focus();
+                return false;
+            }
+
+
+            //Password validation
+            if(document.volunteerLoginForm.pwordV.value == '')
+            {
+                alert('Password field cannot be blank.');
+                document.volunteerLoginForm.pwordV.focus();
+                return false;
+            }
+            if(document.volunteerLoginForm.pwordV.value.length < 6)
+            {
+                alert('Password field must have atleast 6 charcters.');
+                document.volunteerLoginForm.pwordV.focus();
+                return false;
+            }
+            return true;
+            //very important
+        }
+
+        function validateOrganizerForm()
+        {
+            //Username Validation
+            if(document.organizerLoginForm.username.value == '')
+            {
+                alert('Username field cannot be blank.');
+                document.organizerLoginForm.username.focus();
+                return false;
+            }
+
+            //Password validation
+            if(document.organizerLoginForm.pwordO.value == '')
+            {
+                alert('Password field cannot be blank.');
+                document.organizerLoginForm.pwordO.focus();
+                return false;
+            }
+            if(document.organizerLoginForm.pwordO.value.length < 6)
+            {
+                alert('Password field must have atleast 6 charcters.');
+                document.organizerLoginForm.pwordO.focus();
+                return false;
+            }
+            return true;
+        }
+        
+        </script>
+        
+        <h1><B><strong>Childrens' Gospel Outreach</strong><B></h1>
+        
+        <form name="volunteerLoginForm" method="post" action="validateLogin.php" onsubmit="return validateVolunteerForm()" >
+            <table class = "login-form">
+                <!--to create another heading-->
+                <tr>
+                    <td colspan="3" class="top-form">
+                        <h2>
+                            <strong>Volunteer Login:</strong>
+                        </h2><br>
+                    </td><!--colspan is like tab- span 2 columns-->
+                </tr><!-- <tr>
+      <td colspan="2"><strong>Personal Details</strong></td>
+    </tr> 
+    <tr>  <tr style="background-color: #FFFFFF;">  -->
+                <tr>
+                    <td></td>
+                </tr>
+                    
+                <tr>
+                    <td width="40"></td>
+                    <td>
+                        Email Address:
+                    </td>
+                    <td>
+                        <input type="text" name="emailAddress" style="width: 200px;" maxlength="50">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td width="40"></td>
+                    <td>
+                        Password:
+                    </td>
+                    <td>
+                        <input type="password" name="pwordV" style="width: 200px;" maxlength="100">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td colspan="2"></td>
+                    <td align="right">
+                        <!--because it's a button  dont need the name login -->
+                        <!-- <input type="button" name="login" value="Login" onclick="form.submit()"/>Always remember to end with /-->
+                        <input type="submit" name="login" value="Login">
+                    </td>
+                </tr>
+                
+            </table>
+            
+        </form>
+        
+        <form name="organizerLoginForm" method="post" action="organizer/validateOrganizerLogin.php" onsubmit="return validateOrganizerForm()">
+            <table class = "login-form">
+                <!--to create another heading-->
+                <tr>
+                    <td colspan="3" align = "right">
+                        <h2><U><a href="volunteerRegistration.html">Register to Volunteer</a></U></h2>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td colspan="3"></td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="top-form">
+                        <h2>
+                            <strong>Organizer Login:</strong>
+                        </h2></br>
+                    </td><!--Always remember when u have a big heading expand the column span to 2 or 3-->
+                </tr>
+                <tr>
+                    <td width="40"></td>
+                    <td>
+                        Username:
+                    </td><!--this would be the first coloumn, typing details will be in the 2nd coloumn-->
+                    <td>
+                        <input type="text" name="username" style="width: 200px;" maxlength="100"> <!--above is important to remember-->
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td width="40"></td>
+                    <td>
+                        Password:
+                    </td>
+                    <td>
+                        <input type="password" name="pwordO" style="width: 200px;" maxlength="100">
+                    </td>
+                </tr>
+                
+                <tr height="30">
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td align="right">
+                        <!--because it's a button  dont need the name login -->
+                        <input type="submit" name="login" value="Login">
+                    </td>
+                </tr>
+                
+            </table>
+        </form>
+ 	<div class="copyrights">
+		<p>Template by <a href="http://w3layouts.com">w3layouts</a></p>
+	</div>
+    </body>
+</html>

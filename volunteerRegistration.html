@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Volunteer Registration Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="assets/style.css" rel='stylesheet' type='text/css' />
+<!--webfonts-->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+
+    
+    <script type="text/javascript" language="JavaScript">
+    function validateForm()
+    {
+		//Email Address
+		if(document.volunteerRegistrationForm.emailAddress.value == '' )
+		{
+			alert('Email Address is blank');
+			document.volunteerRegistrationForm.emailAddress.focus();
+			return false;
+		}
+		if (!/^\w+([\.-_]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.volunteerRegistrationForm.emailAddress.value))
+        {
+            alert('This is not a valid email address, pls enter a valid one!');
+			document.volunteerRegistrationForm.emailAddress.focus();
+			return false;
+        }
+      
+		//First name
+		if (document.volunteerRegistrationForm.firstname.value == '')
+		{
+			alert('Firstname field cannot be blank.');
+			document.volunteerRegistrationForm.firstname.focus();
+			//focus means put the cusor there
+			//alert is a pop up box
+			return false; //very important
+		}
+		
+		
+		//Surname
+		if (document.volunteerRegistrationForm.surname.value == '')
+		{
+			alert('Surname field cannot be blank.');
+			document.volunteerRegistrationForm.surname.focus();
+			//focus means put the cusor there
+			//alert is a pop up box
+			return false; //very important
+		}
+        
+		//Address
+		if (document.volunteerRegistrationForm.homeAddress1.value == '')
+		{
+			alert('Home Address field cannot be blank.');
+			document.volunteerRegistrationForm.homeAddress1.focus();
+			//focus means put the cusor there
+			//alert is a pop up box
+			return false; //very important
+		}
+		
+		if (document.volunteerRegistrationForm.suburb.value == '')
+		{
+			alert('Suburb field cannot be blank.');
+			document.volunteerRegistrationForm.suburb.focus();
+			//focus means put the cusor there
+			//alert is a pop up box
+			return false; //very important
+		}
+		if (document.volunteerRegistrationForm.postcode.value == '')
+		{
+			alert('Postcode field cannot be blank.');
+			document.volunteerRegistrationForm.postcode.focus();
+			//focus means put the cusor there
+			//alert is a pop up box
+			return false; //very important
+		}
+		if (!document.volunteerRegistrationForm.postcode.length == 5)
+		{
+			alert('Postcode should be only 5 characters.');
+			document.volunteerRegistrationForm.postcode.focus();
+			//focus means put the cusor there
+			//alert is a pop up box
+			return false; //very important
+		}
+        
+	
+		//Phone Number
+		if(document.volunteerRegistrationForm.phonenumber.value == '' )
+		{
+			alert('Phone number field is blank');
+			document.volunteerRegistrationForm.phonenumber.focus();
+			return false;
+		}
+		if(isNaN(document.volunteerRegistrationForm.phonenumber.value))
+		{
+			alert('Phone Phone field must be a number');
+			document.volunteerRegistrationForm.phonenumber.focus();
+			return false;
+		}
+        
+        //DOB
+		if(document.volunteerRegistrationForm.DOB.value == '' )
+		{
+			alert('Date of birth is blank');
+			document.volunteerRegistrationForm.DOB.focus();
+			return false;
+		}
+		if(!/^[0-9]{4}\/[0-9]{2}\/[0-9]{2}$/.test(document.volunteerRegistrationForm.DOB.value))
+		{
+			alert('Date of birth is invalid (Format is YYYY-MM-DD)');
+			document.volunteerRegistrationForm.DOB.focus();
+			return false;
+		}
+        
+		//Password
+		if(document.volunteerRegistrationForm.pword.value == '' )
+		{
+			alert('Password field is blank');
+			document.volunteerRegistrationForm.pword.focus();
+			return false;
+		}
+		if(document.volunteerRegistrationForm.pword.value.length < 5)
+		{
+			alert('Password field must be aleast 5 characters long');
+			document.volunteerRegistrationForm.pword.focus();
+			return false;
+		}
+		
+		//Confirm Password
+		if(document.volunteerRegistrationForm.confirmPword.value == '' )
+		{
+			alert('Confirm Password field is blank');
+			document.volunteerRegistrationForm.confirmPword.focus();
+			return false;
+		}
+		if(document.volunteerRegistrationForm.password.value != document.nvolunteerRegistrationForm.confirmPword.value)
+		{
+			alert('Password fields do not match');
+			document.volunteerRegistrationForm.confirmPword.focus();
+			return false;
+		}
+		
+		return true; //very important
+    }
+    
+    </script>
+    
+</head>
+<body>
+    <h1><strong>Volunteer Registration Form</strong></h1>
+    
+    <form name="volunteerRegistrationForm" action="validateInsertVolDetails.php" method="post" onsubmit="return validateForm()">
+    <table class="login-form">
+        
+        <tr>
+            <td colspan="2" class="top-form"><h2>Sign Up</h2><br>
+            </td>
+        </tr>
+        
+        
+        <!--ALWAYS REMEMBER WHEN YOU CREATE A NEW COLUMN- MAKE SURE TO FINISH IT WITH td AND THEN In THE NEXT COLUMN ASK FOR THE INPUT-->
+       
+        <!--REMEMBER :ALWAYS FINISH THE INPUT STATEMENT WITH /
+        and 200px;"-->
+        <!-- <input name="firstname" type="text" style="width: 200px;" maxlength="100" /> -->
+        <!--nothing  needs value, unless something asked- otherwise it appears in the site
+        only buttons need value- ex:submit, restart-->
+        <!--  <td>Address:</td>
+            <td><textarea name= "homeAddress1" cols="1" rows="1"></textarea> -->
+            <!--dob and email are same as name- no need of value but style:width-->
+            <!--buttons dont need a name- it will appear in the site-->
+            
+        
+            
+        <tr>
+            <td>Email Address</td>
+            <td><input type="text" name="emailAddress" maxlength="30/" style="width: 200px;"/>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>First Name</td>
+            <td><input type="text" name="firstname"  maxlength="30" style="width: 200px;"/>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Surname:</td>
+            <td><input type="text" name="surname"  maxlength="30" style="width: 200px;"/>
+            </td>
+        </tr>
+            
+        <tr>
+            <td>Address:</td>
+            <td><input type="text" name= "homeAddress1" maxlength="30" style="width: 200px;"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="1"></td>
+            <td><input type="text" name= "homeAddress2" maxlength="30" style="width: 200px;"/>
+            </td>
+            <td>*optional*</td>
+        </tr>
+        <tr>
+            <td colspan="1">Suburb:</td>
+           <td><input type="text" name= "suburb" maxlength="30" style="width: 200px;"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="1">Post Code:</td>
+            <td><input type="text" name= "postcode" maxlength="30" style="width: 200px;"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Phone Number:</td>
+            <td><input type="text" name="phonenumber" maxlength="30" style="width: 200px;"/>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Date of Birth (in YYYY/MM/DD):</td>
+            <td><input type="text" name="DOB" maxlength="10" style="width: 200px;"/>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" name="pword"  maxlength="30" style="width: 200px;"/>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Confirm Password:</td>
+            <td><input type="password" name="confirmPword" maxlength="30" style="width: 200px;"/>
+            </td>
+        </tr>
+        
+        <tr>
+            <td height = "25">
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <INPUT TYPE='button' class="back" VALUE='Back' onClick="window.location.href='index.html'">
+            </td>
+            <td>
+                <input type="submit" >
+                
+            </td>
+        </tr>
+       
+      
+        
+    </form>
+    </table>
+ 	<div class="copyrights">
+		<p>Template by <a href="http://w3layouts.com">w3layouts</a></p>
+	</div>
+</body>
+</html>
